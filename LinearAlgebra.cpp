@@ -544,7 +544,7 @@ int main() {
 			} else if (choice == 4) {		// other matrix options
 
 				cout << "\nMatrix Functions\n" << "0 - Determinant\n"
-						<< "1 - Transpose\n" << "2 - Matrix Singularity\n"
+						<< "1 - Transpose\n" << "2 - Singularity\n"
 						<< "Enter your choice: ";
 
 				while (!(cin >> choice)) {
