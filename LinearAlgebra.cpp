@@ -301,6 +301,26 @@ void transposeMatrix(double** mat, int rows, int columns) {
 		cout << endl;
 	}
 }
+/**
+ *  Determines the singularity of a matrix.
+ *
+ *  @param mat is the given matrix
+ *  @param rows is the number of rows of the given matrix
+ *  @param columns is the number of columns of the given matrix
+ *  @param matrix is the name of the matrix
+ */
+void matrixSingularity(double** mat, int rows, int columns, int matrix) {
+	int determinant = determinantOfMatrix(mat, rows);
+
+	if (rows != columns) {
+		cout << "Matrix " << matrix
+				<< " is not singular because dimensions are not equal.\n";
+	} else if (determinant != 0) {
+		cout << "Matrix " << matrix << " is singular.\n";
+	} else {
+		cout << "Matrix " << matrix << " is not singular.\n";
+	}
+}
 
 /**
  *  A helper method for the sub menu Display Matrix. There are 3 display matrix
@@ -410,6 +430,7 @@ void matrixFunctions(int choice) {
 	int ans = -1;
 
 	if (choice == 0) {				// matrix determinant
+
 		cout << "Input matrix number to find determinant of: " << endl;
 		cout << "Matrix: ";
 		cin >> ans;
@@ -422,15 +443,25 @@ void matrixFunctions(int choice) {
 			cout << determinantOfMatrix(matrices.at(ans), sizes.at(ans).first)
 					<< endl;
 		}
+
 	} else if (choice == 1) {		// transpose matrix
 
-		int ans;
 		cout << "Matrix to transpose: ";
 		cin >> ans;
 		ans = checkMatrix(ans);
 
 		transposeMatrix(matrices.at(ans), sizes.at(ans).first,
 				sizes.at(ans).second);
+
+	} else if (choice == 2) {
+
+		cout << "Matrix to find singularity: ";
+		cin >> ans;
+		ans = checkMatrix(ans);
+
+		matrixSingularity(matrices.at(ans), sizes.at(ans).first,
+				sizes.at(ans).second, ans);
+
 	} else
 		cout << "That's not a choice.\n";
 }
@@ -513,7 +544,8 @@ int main() {
 			} else if (choice == 4) {		// other matrix options
 
 				cout << "\nMatrix Functions\n" << "0 - Determinant\n"
-						<< "1 - Transpose\n" << "Enter your choice: ";
+						<< "1 - Transpose\n" << "2 - Matrix Singularity\n"
+						<< "Enter your choice: ";
 
 				while (!(cin >> choice)) {
 
