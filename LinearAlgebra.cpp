@@ -5,7 +5,7 @@
 // CS email:       vpkale@wisc.edu
 // 				   zepeda2@wisc.edu
 //
-// // Description:    A matrix calculator that computes math operations (addition,
+// Description:    A matrix calculator that computes math operations (addition,
 //				   subtraction, and multiplication), matrix functions
 //                 (determinant and transpose of matrices), and provides various
 //                 display options.
